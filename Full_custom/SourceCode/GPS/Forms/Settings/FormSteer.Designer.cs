@@ -169,6 +169,7 @@
             // 
             this.hsbarMinPWM.LargeChange = 1;
             this.hsbarMinPWM.Location = new System.Drawing.Point(14, 97);
+            this.hsbarMinPWM.Maximum = 250;
             this.hsbarMinPWM.Name = "hsbarMinPWM";
             this.hsbarMinPWM.Size = new System.Drawing.Size(260, 30);
             this.hsbarMinPWM.TabIndex = 284;

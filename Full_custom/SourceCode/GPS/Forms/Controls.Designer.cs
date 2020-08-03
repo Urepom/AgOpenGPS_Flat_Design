@@ -1339,8 +1339,10 @@ namespace AgOpenGPS
                     if (Properties.Settings.Default.setAS_isAutoSteerAutoOn) btnAutoSteer.Text = "R";
                     else btnAutoSteer.Text = "M";
 
-                    MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-                    Close();
+                    ////MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
+                    //Close();
+                    Application.Restart();
+                    Environment.Exit(0);
                 }
             }
 
@@ -1754,18 +1756,23 @@ namespace AgOpenGPS
                 var result = form.ShowDialog();
                 if (result == DialogResult.Cancel)
                 {
-                    MessageBox.Show(gStr.gsError,
-                        gStr.gsFileError,
-                        MessageBoxButtons.YesNo,
+                    MessageBox.Show(gStr.gsRestartRequired,
+
+                       gStr.gsFileError,
+                        MessageBoxButtons.OK,
                         MessageBoxIcon.Question,
                         MessageBoxDefaultButton.Button2);
-                    MessageBox.Show(gStr.gsProgramWillExitPleaseRestart, gStr.gsProgramWillExitPleaseRestart);
-                    Close();
+                    Application.Restart();
+                    Environment.Exit(0);
                 }
                 else if (result == DialogResult.OK)
                 {
-                    MessageBox.Show(gStr.gsProgramWillExitPleaseRestart, gStr.gsProgramWillExitPleaseRestart);
-                    Close();
+                    Application.Restart();
+                    Environment.Exit(0);
+                }
+                else if (result == DialogResult.Ignore)
+                {
+                    //Close();
                 }
             }
         }
@@ -1869,7 +1876,8 @@ namespace AgOpenGPS
                     DialogResult result3 = MessageBox.Show(gStr.gsAgOpenGPSWillExitPlzRestart, gStr.gsTurningOnSimulator ,MessageBoxButtons.OK);
                     Settings.Default.setMenu_isSimulatorOn = simulatorOnToolStripMenuItem.Checked;
                     Settings.Default.Save();
-                    Close();
+                    Application.Restart();
+                    Environment.Exit(0);
                 }
                 else
                 {
@@ -1879,7 +1887,8 @@ namespace AgOpenGPS
                     DialogResult result3 = MessageBox.Show(gStr.gsAgOpenGPSWillExitPlzRestart, gStr.gsTurningOffSimulator, MessageBoxButtons.OK);
                     Settings.Default.setMenu_isSimulatorOn = simulatorOnToolStripMenuItem.Checked;
                     Settings.Default.Save();
-                    Close();
+                    Application.Restart();
+                    Environment.Exit(0);
                 }
             }
 
@@ -2012,7 +2021,8 @@ namespace AgOpenGPS
             }
             SetLanguage("en");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
 
         }
         private void menuLanguageDeutsch_Click(object sender, EventArgs e)
@@ -2025,7 +2035,8 @@ namespace AgOpenGPS
             }
             SetLanguage("de");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
 
         }
         private void menuLanguageRussian_Click(object sender, EventArgs e)
@@ -2038,7 +2049,8 @@ namespace AgOpenGPS
             }
             SetLanguage("ru");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
         }
         private void menuLanguageDutch_Click(object sender, EventArgs e)
         {
@@ -2050,7 +2062,8 @@ namespace AgOpenGPS
             }
             SetLanguage("nl");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
         }
         private void menuLanguageSpanish_Click(object sender, EventArgs e)
         {
@@ -2062,7 +2075,8 @@ namespace AgOpenGPS
             }
             SetLanguage("es");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
         }
         private void menuLanguageFrench_Click(object sender, EventArgs e)
         {
@@ -2074,7 +2088,8 @@ namespace AgOpenGPS
             }
             SetLanguage("fr");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
         }
         private void menuLanguageItalian_Click(object sender, EventArgs e)
         {
@@ -2086,7 +2101,8 @@ namespace AgOpenGPS
             }
             SetLanguage("it");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
         }
         private void menuLanguageUkranian_Click(object sender, EventArgs e)
         {
@@ -2098,7 +2114,8 @@ namespace AgOpenGPS
             }
             SetLanguage("uk");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
         }
         private void menuLanguageSlovak_Click(object sender, EventArgs e)
         {
@@ -2110,7 +2127,8 @@ namespace AgOpenGPS
             }
             SetLanguage("sk");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
 
         }
         private void menuLanguagesPolski_Click(object sender, EventArgs e)
@@ -2135,7 +2153,8 @@ namespace AgOpenGPS
             }
             SetLanguage("af");
             MessageBox.Show(gStr.gsProgramWillExitPleaseRestart);
-            Close();
+            Application.Restart();
+            Environment.Exit(0);
         }
 
         private void SetLanguage(string lang)

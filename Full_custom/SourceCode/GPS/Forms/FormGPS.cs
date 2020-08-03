@@ -1505,6 +1505,8 @@ namespace AgOpenGPS
                 if (result == DialogResult.OK)
                 {
                     //Clicked Save
+                    Application.Restart();
+                    Environment.Exit(0);
                 }
                 else
                 {

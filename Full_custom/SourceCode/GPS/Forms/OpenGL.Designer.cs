@@ -1890,6 +1890,8 @@ namespace AgOpenGPS
             {
                 double dist = distanceDisplay * 0.1;
 
+                if (!isMetric) dist *= 0.3937;
+
                 DrawLightBar(oglMain.Width, oglMain.Height, dist);
 
                 double size = 1.5;
@@ -2344,7 +2346,7 @@ namespace AgOpenGPS
             frustum[23] = clip[15] - clip[13];
         }
 
-        public double maxFieldX, maxFieldY, minFieldX, minFieldY, fieldCenterX, fieldCenterY, maxFieldDistance;
+        public double maxFieldX, maxFieldY, minFieldX, minFieldY, fieldCenterX, fieldCenterY, maxFieldDistance, maxCrossFieldLength;
 
         //determine mins maxs of patches and whole field.
         public void CalculateMinMax()
@@ -2405,13 +2407,15 @@ namespace AgOpenGPS
 
             if (maxFieldX == -9999999 | minFieldX == 9999999 | maxFieldY == -9999999 | minFieldY == 9999999)
             {
-                maxFieldX = 0; minFieldX = 0; maxFieldY = 0; minFieldY = 0;
+                maxFieldX = 0; minFieldX = 0; maxFieldY = 0; minFieldY = 0; maxFieldDistance = 1500;
             }
             else
             {
                 //the largest distancew across field
                 double dist = Math.Abs(minFieldX - maxFieldX);
                 double dist2 = Math.Abs(minFieldY - maxFieldY);
+
+                maxCrossFieldLength = Math.Sqrt(dist * dist + dist2 * dist2) * 1.05;
 
                 if (dist > dist2) maxFieldDistance = (dist);
                 else maxFieldDistance = (dist2);
