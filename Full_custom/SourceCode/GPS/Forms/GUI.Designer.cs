@@ -121,10 +121,9 @@ namespace AgOpenGPS
                     if (isMetric)
                     {
                         //lblTotalFieldArea.Text = fd.AreaBoundaryLessInnersHectares;
-                        //lblTotalAppliedArea.Text = fd.WorkedHectares;
-                        //lblWorkRemaining.Text = fd.WorkedAreaRemainHectares;
-                        //lblPercentRemaining.Text = fd.WorkedAreaRemainPercentage;
-                        //lblTimeRemaining.Text = fd.TimeTillFinished;
+                        lblTotalAppliedArea.Text = fd.WorkedHectares;
+                        lblWorkRemaining.Text = fd.WorkedAreaRemainHectares;            
+                        lblTimeRemaining.Text = fd.TimeTillFinished;
 
                         fieldStatusStripText.Text = fd.WorkedAreaRemainHectares + "\r\n" +
                                                        fd.WorkedAreaRemainPercentage + "\r\n" +
@@ -137,7 +136,7 @@ namespace AgOpenGPS
                         //lblOverlapPercent.Text = (fd.overlapPercent.ToString("N2")) + "%";
                         //lblAreaOverlapped.Text = (((fd.workedAreaTotal - fd.actualAreaCovered) * glm.m2ha).ToString("N3"));
 
-                        //btnManualOffOn.Text = fd.AreaBoundaryLessInnersHectares;
+                        btnManualOffOn.Text = fd.AreaBoundaryLessInnersHectares;
                         //lblEqSpec.Text = (Math.Round(tool.toolWidth, 2)).ToString() + " m  " + vehicleFileName + toolFileName;
                     }
                     else //imperial
