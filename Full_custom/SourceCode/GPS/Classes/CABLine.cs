@@ -118,7 +118,7 @@ namespace AgOpenGPS
 
                     GL.Color3(0.56f, 0.650f, 0.650f);
                     GL.Enable(EnableCap.LineStipple);
-                    GL.LineStipple(1, 0x0101);
+                    GL.LineStipple(1, 0x0102);
 
                     GL.LineWidth(lineWidth);
                     GL.Begin(PrimitiveType.Lines);
